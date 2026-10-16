@@ -6,11 +6,11 @@
 
 ### وسط مئات التنبيهات… ما الذي يحتاج قرارك الآن؟
 
-![Expo 2030 Riyadh](https://img.shields.io/badge/Expo_2030-Riyadh-0E7C66?style=for-the-badge)
+![Expo 2030 Riyadh](https://img.shields.io/badge/Expo%202030-Riyadh-0E7C66?style=for-the-badge)
 ![Track 3](https://img.shields.io/badge/Track_3-Operations_·_Safety_·_Security-1F4E79?style=for-the-badge)
 ![Challenge 3.6](https://img.shields.io/badge/Challenge-3.6-C0392B?style=for-the-badge)
 
-![Django](https://img.shields.io/badge/Django-6.1-092E20?style=flat-square&logo=django)
+![Django](https://img.shields.io/badge/Django-6.1-092E20?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=flat-square&logo=python&logoColor=white)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8-Computer_Vision-111F68?style=flat-square)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=flat-square&logo=sqlite)
@@ -351,7 +351,7 @@ It ingests **camera** (YOLOv8 fall detection) and **field radio** (speech-to-tex
 
 | الاسم | الدور |
 |:---:|:---:|
-| **سارة السبيعي** | قائدة الفريق · قواعد البيانات |
+| **سارة السبيعي** | قائدة الفريق |
 | **دلال القرني** | عضو الفريق |
 | **خديجه العبيدالله** | عضو الفريق |
 | **روان السبيعي** | عضو الفريق |
