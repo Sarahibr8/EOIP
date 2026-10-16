@@ -19,7 +19,7 @@
 
 <br>
 
-## [▶️ شاهد العرض المباشر · Live Demo](https://claude.ai/artifact/NrMNtJrhaxSHy3TbEXNDR8)
+## [▶️ شاهد العرض المباشر · Live Demo](https://sarahibr8.github.io/EOIP/)
 
 **بدون تثبيت وبدون سيرفر:** اضغط الرابط وشاهد المنصة الحقيقية وهي تعمل (فيديو + جولة في كل الشاشات).
 
@@ -37,7 +37,7 @@
 
 | الطريقة | الوقت | كيف |
 |---|---|---|
-| 🎬 **مشاهدة العرض** | فوري | [**افتح رابط العرض المباشر**](https://claude.ai/artifact/NrMNtJrhaxSHy3TbEXNDR8) |
+| 🎬 **مشاهدة العرض** | فوري | [**افتح رابط العرض المباشر**](https://sarahibr8.github.io/EOIP/) |
 | 💻 **تشغيل المنصة على جهازك** | 5–15 دقيقة أول مرة | اتبع [قسم التشغيل](#7--التشغيل-على-جهازك) |
 
 **حساب لجنة التحكيم** (يُنشأ تلقائيًا مع أول تشغيل):
@@ -143,7 +143,7 @@
 
 ## 6 · سيناريو العرض
 
-> 3–5 دقائق · كل الخطوات موجودة أيضًا في [رابط العرض المباشر](https://claude.ai/artifact/NrMNtJrhaxSHy3TbEXNDR8)
+> 3–5 دقائق · كل الخطوات موجودة أيضًا في [رابط العرض المباشر](https://sarahibr8.github.io/EOIP/)
 
 1. **سجّل الدخول** (`990200000` / `Expo2030Judge`)، فتبدأ الفعالية وتتدفق التنبيهات.
 2. **الحريق** (زون A · منطقة المطاعم) يظهر حرجًا خلال ثوانٍ، مؤكدًا من الكاميرا واللاسلكي. افتح الحالة و**اعتمد الخطة**.
@@ -334,7 +334,7 @@ eoip-django/
 
 It ingests **camera** (YOLOv8 fall detection) and **field radio** (speech-to-text) reports, filters noise, merges duplicates, links reports about the same event into one incident, ranks priority with the reason for every point, shows a pre-approved plan for critical cases, simulates the 15-minute impact of operational options, and **escalates late decisions (L1 → L2 → L3)**. The human always decides, and every decision is logged.
 
-- **Live demo (no install):** https://claude.ai/artifact/NrMNtJrhaxSHy3TbEXNDR8
+- **Live demo (no install):** https://sarahibr8.github.io/EOIP/
 - **Run locally:** `START-EOIP.bat` (Windows), or `pip install -r requirements.txt` → `python manage.py migrate` → `python manage.py runeoip --host 0.0.0.0 --port 8000 --phone-port 8443`, then open `http://localhost:8000`
 - **Judges:** `990200000` / `Expo2030Judge` · Presenter tools: **Shift + D**
 - **YOLO:** installed via `requirements.txt` (PyTorch ~1–2 GB, first install takes minutes); weights included at `cv/models/yolov8n.pt`
