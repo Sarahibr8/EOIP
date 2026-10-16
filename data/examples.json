@@ -1,0 +1,80 @@
+{
+ "_note": "SYNTHETIC example cases (already handled earlier in the shift). Stored in the database when a new event starts so the screens are never empty. Sources: camera and field radio only. Not Expo data.",
+ "operator": "فريق العمليات · مثال مخزّن",
+ "cases": [
+  {
+   "key": "EX-FIRE",
+   "minutes_ago": 150,
+   "handled_after_min": 20,
+   "outcome": "approve_resolve",
+   "signals": [
+    {
+     "source_system": "cctv_ai",
+     "category": "smoke_detected",
+     "zone_id": "ZONE-C",
+     "location_id": "WAITING-AREA",
+     "confidence": 0.78,
+     "raw_text": "كاميرا 25: رصد دخان في منطقة الانتظار",
+     "location_detail": "Camera CAM-C-25",
+     "payload": {
+      "camera_id": "CAM-C-25"
+     }
+    },
+    {
+     "source_system": "radio",
+     "raw_text": "فيه دخان خفيف في زون C عند منطقة الانتظار من مطبخ أحد الأكشاك",
+     "extract": true
+    }
+   ],
+   "note": "مثال: أُرسل فريق الإطفاء وأُطفئ مصدر الدخان في المطبخ، ولا إصابات."
+  },
+  {
+   "key": "EX-CROWD",
+   "minutes_ago": 95,
+   "handled_after_min": 15,
+   "outcome": "resolve",
+   "signals": [
+    {
+     "source_system": "radio",
+     "raw_text": "ازدحام في زون B عند الممر الرئيسي بعد انتهاء العرض",
+     "extract": true
+    },
+    {
+     "source_system": "cctv_ai",
+     "category": "crowd_report",
+     "zone_id": "ZONE-B",
+     "location_id": "MAIN-WALKWAY",
+     "confidence": 0.8,
+     "raw_text": "كاميرا 07: تجمع كثيف في الممر الرئيسي",
+     "payload": {
+      "camera_id": "CAM-B-07"
+     }
+    }
+   ],
+   "note": "مثال: وُجّه الزوار عبر مسار بديل وخفّ الازدحام خلال 15 دقيقة."
+  },
+  {
+   "key": "EX-STAFF",
+   "minutes_ago": 40,
+   "handled_after_min": 6,
+   "outcome": "dismiss",
+   "signals": [
+    {
+     "source_system": "radio",
+     "raw_text": "نحتاج منظمين إضافيين في زون B عند نقطة الإسعافات الأولية",
+     "extract": true
+    },
+    {
+     "source_system": "radio",
+     "category": "staff_shortage_report",
+     "zone_id": "ZONE-B",
+     "location_id": "FIRST-AID",
+     "confidence": 0.85,
+     "raw_text": "مشرف ثاني: نقص منظمين عند نقطة الإسعافات زون B"
+    }
+   ],
+   "note": "مثال: رُفض الطلب لأن وردية التبديل وصلت وعدد الموظفين اكتمل."
+  }
+ ],
+ "history_operator": "سجل تجريبي · بيانات تجريبية"
+}

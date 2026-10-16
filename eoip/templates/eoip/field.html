@@ -1,0 +1,126 @@
+{% load static %}<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1522">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>EOIP — Field report</title>
+  <link rel="stylesheet" href="{% static 'css/eoip.css' %}">
+  <link rel="stylesheet" href="{% static 'css/field.css' %}">
+</head>
+<body class="field">
+  <header class="f-head">
+    <div class="f-brand">
+      <div class="brand-mark" id="brandMark"></div>
+      <div><div class="brand-name" data-i18n="field.title"></div><span class="brand-sub" data-i18n="field.subtitle"></span>
+        <small class="field-employee">{{ employee.display_name }} · {{ employee.employee_number }}</small></div>
+    </div>
+    <div class="field-head-actions"><button class="btn" id="langBtn" type="button"></button>
+      <form action="{% url 'logout' %}" method="post"><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <button class="btn field-logout" type="submit" data-i18n="login.logout"></button></form></div>
+  </header>
+
+  <div class="f-tabs" role="tablist">
+    <button type="button" role="tab" id="tabVoice" aria-selected="true" aria-controls="panelVoice"></button>
+    <button type="button" role="tab" id="tabCam" aria-selected="false" aria-controls="panelCam"></button>
+  </div>
+
+  <!-- voice / text report -->
+  <main class="f-main" id="panelVoice" role="tabpanel">
+    <div class="f-lang">
+      <label for="speechLang" data-i18n="field.language"></label>
+      <select id="speechLang"><option value="ar-SA">العربية</option><option value="en-US">English</option></select>
+    </div>
+
+    <button class="mic" id="micBtn" type="button" aria-pressed="false">
+      <span class="mic-icon" id="micIcon"></span>
+      <span class="mic-label" id="micLabel" data-i18n="field.mic_tap"></span>
+    </button>
+    <p class="f-note" id="micNote" role="status"></p>
+
+    <label class="f-label" for="transcript" data-i18n="field.transcript"></label>
+    <textarea id="transcript" class="note-input f-text" rows="3" dir="auto" data-i18n-placeholder="field.transcript_placeholder"></textarea>
+    <p class="f-hint" data-i18n="field.transcript_hint"></p>
+
+    <button class="btn f-wide" id="analyzeBtn" type="button" data-i18n="field.analyze"></button>
+
+    <section class="f-card" id="understood" hidden>
+      <h2 data-i18n="field.understood"></h2>
+      <div class="f-grid">
+        <label for="catSel" data-i18n="field.category"></label>
+        <div><select id="catSel"></select><small class="src" id="catSrc"></small></div>
+        <label for="zoneSel" data-i18n="field.zone"></label>
+        <div><select id="zoneSel"></select><small class="src" id="zoneSrc"></small></div>
+        <label for="locSel" data-i18n="field.location"></label>
+        <div><select id="locSel"></select><small class="src" id="locSrc"></small></div>
+        <label for="locOther" data-i18n="field.location_other" id="locOtherLbl" hidden></label>
+        <input id="locOther" type="text" maxlength="120" hidden>
+      </div>
+      <ul class="f-reasons" id="reviewReasons"></ul>
+      <p class="f-conf" id="conf"></p>
+      <p class="form-error" id="reviewNote"></p>
+    </section>
+
+    <button class="btn btn-primary f-wide f-send" id="sendBtn" type="button" disabled></button>
+    <p class="f-result" id="result" role="status"></p>
+
+    <details class="f-samples">
+      <summary data-i18n="field.samples"></summary>
+      <p class="f-note" data-i18n="field.sample_note"></p>
+      <div class="f-sample-list" id="samples"></div>
+    </details>
+  </main>
+
+  <!-- live camera -->
+  <main class="f-main" id="panelCam" role="tabpanel" hidden>
+    <section class="cam-guide" aria-labelledby="camGuideTitle">
+      <div class="cam-guide-copy">
+        <span class="cam-eyebrow" id="camKicker" data-i18n="field.cam_kicker"></span>
+        <h1 id="camGuideTitle" data-i18n="field.cam_title"></h1>
+        <p id="camIntro" data-i18n="field.cam_intro"></p>
+      </div>
+      <ol class="cam-steps" id="camSteps">
+        <li><span class="cam-step-num">01</span><span id="camStepZone" data-i18n="field.cam_step_zone"></span></li>
+        <li><span class="cam-step-num">02</span><span id="camStepEmpty" data-i18n="field.cam_step_empty"></span></li>
+        <li><span class="cam-step-num">03</span><span id="camStepClip" data-i18n="field.cam_step_clip"></span></li>
+      </ol>
+    </section>
+    <div class="f-grid">
+      <label for="camZone" data-i18n="field.zone"></label><select id="camZone"></select>
+      <label for="camLoc" data-i18n="field.location"></label><select id="camLoc"></select>
+    </div>
+
+
+    <section id="liveBox">
+      <div class="cam-frame" id="camFrame">
+        <video id="camVideo" playsinline muted></video>
+        <div class="cam-placeholder" id="camPlaceholder" aria-live="polite"></div>
+        <span class="cam-badge" id="camBadge" hidden></span>
+      </div>
+      <canvas id="camCanvas" hidden></canvas>
+      <div class="actions cam-actions"><button class="btn btn-primary f-wide cam-start" id="camStart" type="button"></button>
+        <button class="btn f-wide" id="camStop" type="button" hidden></button></div>
+    </section>
+
+    <details class="cam-secondary" id="camFileOption">
+      <summary data-i18n="field.cam_file_option"></summary>
+      <div class="cam-secondary-content">
+        <p data-i18n="field.cam_file_help"></p>
+        <label class="f-label" for="camFile" data-i18n="field.cam_file"></label>
+        <input id="camFile" type="file" accept="video/*">
+        <button class="btn f-wide cam-file-button" id="camAnalyze" type="button" disabled></button>
+      </div>
+    </details>
+
+    <div class="cam-status" id="camStatus" role="status"></div>
+    <div class="f-result cam-result" id="camResult" role="status" aria-live="polite"></div>
+    <aside class="cam-disclosure" aria-label="Prototype limitations">
+      <strong id="camDisclosureTitle" data-i18n="field.cam_disclosure_title"></strong>
+      <p id="camHonest" data-i18n="field.cam_honest"></p>
+    </aside>
+  </main>
+  <script type="module" src="{% static 'js/field.js' %}"></script>
+  <footer class="site-foot" dir="ltr"><span>© 2026 <b>SaudiWay</b>. All rights reserved.</span><span class="fsep" aria-hidden="true"></span><span>Expo Operations Management System</span></footer>
+</body>
+</html>

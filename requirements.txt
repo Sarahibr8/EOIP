@@ -1,0 +1,8 @@
+django>=6.1,<6.2
+# HTTPS for the phone microphone and camera (python manage.py runeoip --https)
+werkzeug>=3.0
+cryptography>=42
+# camera: YOLO deep-learning person detector (installs PyTorch, ~1-2 GB)
+ultralytics>=8.3
+opencv-python>=4.8
+numpy>=1.26

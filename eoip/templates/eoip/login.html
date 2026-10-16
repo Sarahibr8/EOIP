@@ -1,0 +1,64 @@
+{% load static %}<!doctype html>
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1522">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>EOIP — Sign in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="{% static 'css/eoip.css' %}">
+</head>
+<body class="login-page">
+  <main class="login-screen" aria-labelledby="loginTitle">
+    <div class="login-shell">
+      <section class="login-brand" aria-label="EOIP">
+        <div class="login-photo" aria-hidden="true"></div>
+        <div class="login-brand-head">
+          <span class="login-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2"/><circle cx="4.5" cy="6" r="1.5"/><circle cx="19.5" cy="6" r="1.5"/><circle cx="4.5" cy="18" r="1.5"/><circle cx="19.5" cy="18" r="1.5"/><path d="m6 7 4.3 3.7M18 7l-4.3 3.7M6 17l4.3-3.7M18 17l-4.3-3.7"/></svg></span>
+          <span><b>EOIP</b><small>Expo Operations Intelligence Platform</small></span>
+        </div>
+        <div class="login-brand-copy">
+          <span class="eyebrow" data-i18n="login.eyebrow"></span>
+          <h1 data-i18n="login.brand_title"></h1>
+          <p data-i18n="login.brand_copy"></p>
+        </div>
+        <ul class="login-features" aria-label="EOIP capabilities">
+          <li><span class="feature-icon" data-icon="incident"></span><span data-i18n="login.feature_safety"></span></li>
+          <li><span class="feature-icon" data-icon="overview"></span><span data-i18n="login.feature_efficiency"></span></li>
+          <li><span class="feature-icon" data-icon="decide"></span><span data-i18n="login.feature_speed"></span></li>
+          <li><span class="feature-icon" data-icon="crowd"></span><span data-i18n="login.feature_visitors"></span></li>
+        </ul>
+        <div class="login-brand-foot"><span></span><small data-i18n="app.synthetic"></small></div>
+      </section>
+
+      <section class="login-card">
+        <div class="login-card-top">
+          <a class="login-mobile-brand" href="#" aria-label="EOIP"><span class="login-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2"/><circle cx="4.5" cy="6" r="1.5"/><circle cx="19.5" cy="6" r="1.5"/><circle cx="4.5" cy="18" r="1.5"/><circle cx="19.5" cy="18" r="1.5"/><path d="m6 7 4.3 3.7M18 7l-4.3 3.7M6 17l4.3-3.7M18 17l-4.3-3.7"/></svg></span><b>EOIP</b></a>
+          <button class="rail-btn login-lang" id="loginLangBtn" type="button" aria-label="Switch language"></button>
+        </div>
+        <div class="login-form-wrap">
+          <span class="eyebrow" data-i18n="login.welcome"></span>
+          <h1 id="loginTitle" data-i18n="login.title"></h1>
+          <p class="login-lead" data-i18n="login.subtitle"></p>
+          <form id="loginForm" method="post" action="{% url 'login' %}?lang={{ lang }}&amp;next={{ next_url|urlencode }}">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <input type="hidden" name="next" value="{{ next_url }}">
+            <input type="hidden" name="lang" value="{{ lang }}">
+            <label for="employeeNumber" data-i18n="login.employee_label"></label>
+            <input id="employeeNumber" name="employee_number" type="text" inputmode="numeric" pattern="[0-9٠-٩۰-۹]*" maxlength="24" autocomplete="username" dir="ltr" required data-i18n-placeholder="login.employee_placeholder">
+            <label for="password" data-i18n="login.password_label"></label>
+            <div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" required><button id="passwordToggle" class="password-toggle" type="button" aria-label=""></button></div>
+            <p class="form-error login-error" id="loginError" role="alert" {% if not error %}hidden{% endif %} data-i18n="login.{% if error == 'csrf' %}csrf{% else %}invalid{% endif %}"></p>
+            <button class="btn btn-primary login-submit" type="submit"><span data-i18n="login.submit"></span></button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <footer class="site-foot" dir="ltr"><span>© 2026 <b>SaudiWay</b>. All rights reserved.</span><span class="fsep" aria-hidden="true"></span><span>Expo Operations Management System</span></footer>
+  </main>
+  <script type="module" src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

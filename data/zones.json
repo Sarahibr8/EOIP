@@ -1,0 +1,33 @@
+{
+  "_note": "Illustrative operational layout for the EOIP MVP demo: three zones (Zone A/B/C) and six operational locations. These are demo names and baseline figures, NOT the official Expo 2030 Riyadh site plan or real capacities.",
+  "zones": [
+    {"id": "ZONE-A", "name_ar": "زون A", "name_en": "Zone A", "kind": "hall", "criticality": 2,
+     "capacity": 6000, "occupancy": 4900, "inflow_per_min": 220, "outflow_per_min": 220,
+     "staff_on_duty": 14, "staff_required": 12, "neighbors": ["ZONE-B"],
+     "map": [40, 30, 920, 190],
+     "shape": "M60 40 L940 40 Q955 40 955 55 L955 205 Q955 220 940 220 L60 220 Q45 220 45 205 L45 55 Q45 40 60 40 Z"},
+    {"id": "ZONE-B", "name_ar": "زون B", "name_en": "Zone B", "kind": "plaza", "criticality": 2,
+     "capacity": 5000, "occupancy": 2600, "inflow_per_min": 200, "outflow_per_min": 200,
+     "staff_on_duty": 12, "staff_required": 8, "neighbors": ["ZONE-A", "ZONE-C"],
+     "map": [140, 236, 720, 168],
+     "shape": "M160 236 L840 236 Q855 236 855 251 L855 389 Q855 404 840 404 L160 404 Q145 404 145 389 L145 251 Q145 236 160 236 Z"},
+    {"id": "ZONE-C", "name_ar": "زون C", "name_en": "Zone C", "kind": "gate", "criticality": 3,
+     "capacity": 1500, "occupancy": 900, "inflow_per_min": 90, "outflow_per_min": 96,
+     "staff_on_duty": 6, "staff_required": 6, "neighbors": ["ZONE-B"],
+     "map": [240, 420, 520, 150],
+     "shape": "M262 420 L738 420 Q753 420 756 435 L780 555 Q783 570 768 570 L232 570 Q217 570 220 555 L244 435 Q247 420 262 420 Z"}
+  ],
+  "locations": [
+    {"id": "FOOD-COURT",   "zone_id": "ZONE-A", "name_ar": "منطقة المطاعم",        "name_en": "Food Court",      "map": [270, 130]},
+    {"id": "EVENT-AREA",   "zone_id": "ZONE-A", "name_ar": "منطقة الفعاليات",      "name_en": "Event Area",      "map": [730, 130]},
+    {"id": "MAIN-WALKWAY", "zone_id": "ZONE-B", "name_ar": "الممر الرئيسي",        "name_en": "Main Walkway",    "map": [500, 320]},
+    {"id": "FIRST-AID",    "zone_id": "ZONE-B", "name_ar": "نقطة الإسعافات الأولية", "name_en": "First Aid Point", "map": [760, 320]},
+    {"id": "MAIN-GATE",    "zone_id": "ZONE-C", "name_ar": "البوابة الرئيسية",      "name_en": "Main Gate",       "map": [500, 530]},
+    {"id": "WAITING-AREA", "zone_id": "ZONE-C", "name_ar": "منطقة الانتظار",       "name_en": "Waiting Area",    "map": [390, 515]}
+  ],
+  "walkways": [
+    ["MAIN-GATE", "WAITING-AREA"], ["MAIN-GATE", "MAIN-WALKWAY"], ["WAITING-AREA", "MAIN-WALKWAY"],
+    ["MAIN-WALKWAY", "FIRST-AID"], ["MAIN-WALKWAY", "FOOD-COURT"], ["MAIN-WALKWAY", "EVENT-AREA"],
+    ["FOOD-COURT", "EVENT-AREA"]
+  ]
+}

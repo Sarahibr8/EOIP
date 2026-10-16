@@ -1,0 +1,21 @@
+{
+  "_note": "SYNTHETIC demo roster for the EOIP MVP. Team names, sizes and base locations are invented for the demo; they are not Expo 2030 staffing data. ETAs are estimates: mobilisation + walking minutes on the illustrative walkway graph below.",
+  "mobilise_minutes": 1.0,
+  "walk_minutes": [
+    ["MAIN-GATE", "WAITING-AREA", 2], ["MAIN-GATE", "MAIN-WALKWAY", 3], ["WAITING-AREA", "MAIN-WALKWAY", 3],
+    ["MAIN-WALKWAY", "FIRST-AID", 2], ["MAIN-WALKWAY", "FOOD-COURT", 3], ["MAIN-WALKWAY", "EVENT-AREA", 3],
+    ["FOOD-COURT", "EVENT-AREA", 2]
+  ],
+  "teams": [
+    {"id": "FIRE-1", "name_ar": "فريق الإطفاء 1",      "name_en": "Fire team 1",       "kind": "fire",       "base_location": "MAIN-GATE",    "members": 4},
+    {"id": "FIRE-2", "name_ar": "فريق الإطفاء 2",      "name_en": "Fire team 2",       "kind": "fire",       "base_location": "EVENT-AREA",   "members": 4},
+    {"id": "MED-1",  "name_ar": "الفريق الطبي 1",      "name_en": "Medical team 1",    "kind": "medical",    "base_location": "FIRST-AID",    "members": 2},
+    {"id": "MED-2",  "name_ar": "الفريق الطبي 2",      "name_en": "Medical team 2",    "kind": "medical",    "base_location": "MAIN-GATE",    "members": 2},
+    {"id": "MED-3",  "name_ar": "الفريق الطبي 3",      "name_en": "Medical team 3",    "kind": "medical",    "base_location": "FOOD-COURT",   "members": 2},
+    {"id": "STW-1",  "name_ar": "فريق المنظمين 1",     "name_en": "Steward team 1",    "kind": "steward",    "base_location": "MAIN-WALKWAY", "members": 6},
+    {"id": "STW-2",  "name_ar": "فريق المنظمين 2",     "name_en": "Steward team 2",    "kind": "steward",    "base_location": "WAITING-AREA", "members": 6},
+    {"id": "SEC-1",  "name_ar": "فريق الأمن 1",        "name_en": "Security team 1",   "kind": "security",   "base_location": "MAIN-GATE",    "members": 4},
+    {"id": "FAC-1",  "name_ar": "فريق المرافق 1",      "name_en": "Facilities team 1", "kind": "facilities", "base_location": "EVENT-AREA",   "members": 3},
+    {"id": "IT-1",   "name_ar": "فريق الدعم التقني 1",  "name_en": "IT support 1",      "kind": "it",         "base_location": "FOOD-COURT",   "members": 2}
+  ]
+}

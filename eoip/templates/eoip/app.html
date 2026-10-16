@@ -1,0 +1,57 @@
+{% load static %}<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <meta name="theme-color" content="#0b1522">
+  <title>EOIP — Operations Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="{% static 'css/eoip.css' %}">
+</head>
+<body data-employee-name="{{ employee.display_name }}" data-employee-number="{{ employee.employee_number }}">
+<div class="shell" id="appShell">
+  <aside class="rail"><div class="rail-inner">
+    <a class="mark" href="#/" style="text-decoration:none" dir="ltr">
+      <span id="markIcon"></span><span><b>EOIP</b><small>Expo Operations<br>Intelligence Platform</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="EOIP">
+      <a href="#/" data-nav="overview"></a>
+      <a href="#/map" data-nav="map"></a>
+      <a href="#/incidents" data-nav="incidents"></a>
+      <a href="#/log" data-nav="log"></a>
+      <div class="nav-sep"></div>
+      <a href="/field" data-nav="field" target="_blank" rel="noopener"></a>
+    </nav>
+    <div class="rail-foot">
+      <button class="rail-btn" id="demoBtn" type="button" aria-expanded="false" aria-controls="demoPop"></button>
+      <nav class="nav rail-set" aria-label="settings"><a href="#/settings" data-nav="settings"></a></nav>
+      <div class="rail-note" id="railNote"></div>
+      <form action="{% url 'logout' %}" method="post" id="logoutForm" hidden>
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+      </form>
+    </div>
+  </div></aside>
+  <div class="main">
+    <header class="situation topbar" id="eventbar"></header>
+    <main class="page" id="page" tabindex="-1"></main>
+    <footer class="site-foot" dir="ltr"><span>© 2026 <b>SaudiWay</b>. All rights reserved.</span><span class="fsep" aria-hidden="true"></span><span>Expo Operations Management System</span></footer>
+  </div>
+</div>
+<div class="demo-pop" id="demoPop" role="dialog" aria-labelledby="demoTitle">
+  <div class="pop-title" id="demoTitle"></div>
+  <div class="status" id="demoStatus"></div>
+  <div class="grp" id="demoGrpEvent"></div>
+  <button class="btn" id="demoReset" type="button"></button>
+  <button class="btn btn-quiet" id="demoSkip" type="button"></button>
+  <div class="grp" id="demoGrpFallback"></div>
+  <button class="btn" id="demoFire" type="button"></button>
+  <button class="btn" id="demoCv" type="button"></button>
+  <button class="btn" id="demoField" type="button"></button>
+</div>
+<div class="toasts" id="toasts" role="status"></div>
+<script type="module" src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
