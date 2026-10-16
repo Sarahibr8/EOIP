@@ -23,6 +23,8 @@
 
 **بدون تثبيت وبدون سيرفر:** اضغط الرابط وشاهد المنصة الحقيقية وهي تعمل (فيديو + جولة في كل الشاشات).
 
+🎥 [**فيديو شرح المشروع**](https://drive.google.com/file/d/17c5Famj9-RRXz8gjZLbL44LMZb5Uh7Vc/view) · 🛠️ [**فيديو طريقة التشغيل (Tutorial)**](https://drive.google.com/file/d/1riJ-1Dx8Pwx-vuVR9fjrwhOHE8I3xZPX/view)
+
 </div>
 
 ---
@@ -38,6 +40,8 @@
 | الطريقة | الوقت | كيف |
 |---|---|---|
 | 🎬 **مشاهدة العرض** | فوري | [**افتح رابط العرض المباشر**](https://sarahibr8.github.io/EOIP/) |
+| 🎥 **فيديو شرح المشروع** | دقائق | [**افتح الفيديو**](https://drive.google.com/file/d/17c5Famj9-RRXz8gjZLbL44LMZb5Uh7Vc/view) |
+| 🛠️ **فيديو طريقة التشغيل** | دقائق | [**افتح الفيديو**](https://drive.google.com/file/d/1riJ-1Dx8Pwx-vuVR9fjrwhOHE8I3xZPX/view) |
 | 💻 **تشغيل المنصة على جهازك** | 5–15 دقيقة أول مرة | اتبع [قسم التشغيل](#7--التشغيل-على-جهازك) |
 
 **حساب لجنة التحكيم** (يُنشأ تلقائيًا مع أول تشغيل):
